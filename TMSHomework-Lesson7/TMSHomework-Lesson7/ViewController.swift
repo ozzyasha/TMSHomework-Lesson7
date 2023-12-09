@@ -22,23 +22,23 @@ class ViewController: UIViewController {
           Итог: Создайте несколько экземпляров студентов, преподавателей. Добавьте студентам предметы и установите оценки.
           Вывод должен быть таким: (ID) (Имя) (Фамилия) (Предмет) (Оценка) (Кто поставил оценку)
          У преподавателя вывод должен быть таким: (ID) (Имя) (Фамилия) (Предмет который ведет) (Студент) (Оценка которую поставил преподаватель)
-
-          Создание учителя
+         */
+        
+         // Создание учителя
          let mathTeacher = Teacher(id: 1, firstName: "John", lastName: "Doe")
          mathTeacher.addSubjectTaught(subjectName: "Math")
 
-          Создание студентов
+         // Создание студентов
          let student1 = Student(id: 1, name: "Alice", lastName: "Simpson", age: 20)
          let student2 = Student(id: 2, name: "Bob", lastName: "Maguire", age: 21)
 
-          Связывание студентов с учителем
+         // Связывание студентов с учителем
          student1.assignTeacher(teacher: mathTeacher)
          student2.assignTeacher(teacher: mathTeacher)
 
-          Учитель ставит оценки студентам по предметам
+         // Учитель ставит оценки студентам по предметам
          mathTeacher.setGrade(for: student1, subjectName: "Math", grade: "A")
          mathTeacher.setGrade(for: student2, subjectName: "Math", grade: "B+")
-         */
     }
 
 

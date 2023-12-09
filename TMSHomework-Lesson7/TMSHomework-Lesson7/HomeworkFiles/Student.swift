@@ -24,17 +24,21 @@ class Student {
     }
     
     // Метод для получения предмета
-    func addSubject() { }
+    func addSubject(subjectName: Subject) { }
+    
     // Метод для установки возраста студента
+    func addAge(age: Int) { }
     
-    func addAge() { }
     // Метод для установки имени студента
+    func studentName(name: String) { }
     
-    func studentName() { }
     // Метод для связывания студента с учителем
-    
+    func assignTeacher(teacher: Teacher) { }
     
     // Метод для получения информации о студенте и его предметах
+    func studentInfo(student: Student, subjectName: Subject) { }
     
-    func studentInfo() { }
 }
+
+//Реализуйте методы в классе Student для добавления предметов, установки оценок и получения информации о студенте.
+//Создайте функции для изменения возраста и имени студента, используя соответствующие методы доступа.

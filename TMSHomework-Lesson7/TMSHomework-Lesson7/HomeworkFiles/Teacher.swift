@@ -22,17 +22,22 @@ class Teacher {
         self.studentsTaught = []
     }
     
+    var grade = ""
+    
     // Метод для добавления предмета, который ведет учитель
     func addSubjectTaught(subjectName: String) {
-        
+        let subject = Subject(subjectName: subjectName, grade: grade)
+        self.subjectsTaught.append(subject)
     }
     // Метод для установки оценки ученику по определенному предмету
-    func setGrade(for: Student, subjectName: String, grade: String) {
-        
+    func setGrade(for: Student, subjectName: String, grade: String) -> String {
+        self.studentsTaught.append(`for`)
+        self.grade = grade
+        return grade
     }
     // Метод для получения информации об учителе и предметах, которые он ведет
-    func teacherInfo(teacher: Teacher, subjectName: Subject) {
-        
+    func teacherInfo() {
+        print("ID: \(id), Name: \(firstName), Surname: \(lastName), Subject: \(subjectsTaught.map({$0.subjectName})), Student: \(studentsTaught.map({$0})) \(studentsTaught) Grade: \(subjectsTaught.map({$0.grade}))")
     }
     
 }

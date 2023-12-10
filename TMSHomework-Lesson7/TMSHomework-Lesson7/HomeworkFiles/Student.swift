@@ -22,21 +22,39 @@ class Student {
         self.age = age
         self.subjects = []
     }
+    let noTeacher = Teacher(id: 0, firstName: "N/A", lastName: "N/A")
     
+    var grade = ""
     // Метод для получения предмета
-    func addSubject(subjectName: Subject) { }
+    func addSubject(subjectName: String) -> String {
+        let subject = Subject(subjectName: subjectName, grade: grade)
+        self.subjects.append(subject)
+        return subjectName
+    }
+    
+    // Метод для установки оценок
+    func getGrade(grade: String) {
+        
+        self.grade = grade
+    }
     
     // Метод для установки возраста студента
-    func addAge(age: Int) { }
+    func addAge(age: Int) {
+        self.age = age
+    }
     
     // Метод для установки имени студента
     func studentName(name: String) { }
     
     // Метод для связывания студента с учителем
-    func assignTeacher(teacher: Teacher) { }
+    func assignTeacher(teacher: Teacher) { 
+        self.teacher = teacher
+    }
     
     // Метод для получения информации о студенте и его предметах
-    func studentInfo(student: Student, subjectName: Subject) { }
+    func studentInfo() {
+        print("ID: \(id), Name: \(name), Surname: \(lastName), Subject: \(subjects.map({$0.subjectName})), Grade: \(subjects.map({$0.grade})), Teacher: \(teacher ?? noTeacher)")
+    }
     
 }
 

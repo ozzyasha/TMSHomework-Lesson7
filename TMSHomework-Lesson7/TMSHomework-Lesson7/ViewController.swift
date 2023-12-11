@@ -18,34 +18,40 @@ class ViewController: UIViewController {
         // Создание учителя
         let mathTeacher = Teacher(id: 1, firstName: "John", lastName: "Doe")
         let historyTeacher = Teacher(id: 2, firstName: "Howard", lastName: "Zinn")
+        let biologyTeacher = Teacher(id: 3, firstName: "Charles", lastName: "Darvin")
         mathTeacher.addSubjectTaught(subjectName: math)
         historyTeacher.addSubjectTaught(subjectName: history)
+        biologyTeacher.addSubjectTaught(subjectName: biology)
         
         // Создание студентов
         let student1 = Student(id: 1, name: "Alice", lastName: "Simpson", age: 20)
         let student2 = Student(id: 2, name: "Bob", lastName: "Maguire", age: 21)
         
+        student1.addAge(age: 21)
+        student2.addAge(age: 22)
+        
         // Связывание студентов с учителем
         student1.assignTeacher(teacher: mathTeacher)
         student2.assignTeacher(teacher: mathTeacher)
         student2.assignTeacher(teacher: historyTeacher)
+        print("")
         
-        // Учитель ставит оценки студентам по предметам
-        student1.getGrade(grade: mathTeacher.setGrade(for: student1, subjectName: math, grade: "A"))
-        student2.getGrade(grade: mathTeacher.setGrade(for: student2, subjectName: math, grade: "B+"))
-        
-        // Реализуйте методы в классе Student для добавления предметов
         student1.addSubject(subjectName: math)
-        student1.addSubject(subjectName: biology)
+
         student2.addSubject(subjectName: history)
         student2.addSubject(subjectName: math)
+        // Учитель ставит оценки студентам по предметам
+        student1.getGrade(teacher: mathTeacher, grade:( mathTeacher.setGrade(for: student1, subjectName: math, grade: "A")))
+        student2.getGrade(teacher: mathTeacher, grade: (mathTeacher.setGrade(for: student2, subjectName: math, grade: "B+")))
+        
+        // Реализуйте методы в классе Student для добавления предметов
+
         
         //установки оценок
         
         //получения информации о студенте.
         
-         //Реализуйте методы в классе Teacher с указанием предметов
-        mathTeacher.addSubjectTaught(subjectName: "Math")
+         //Реализуйте методы в классе Teacher с указанием предметов (
         // установки оценок
         
         // и получения информации о студенте которому ставишь оценку.
@@ -59,15 +65,10 @@ class ViewController: UIViewController {
         student1.studentInfo()
         student2.studentInfo()
          //У преподавателя вывод должен быть таким: (ID) (Имя) (Фамилия) (Предмет который ведет) (Студент) (Оценка которую поставил преподаватель)
+        print("")
         mathTeacher.teacherInfo()
-
-
-        
-        
-
-
-
-
+        historyTeacher.teacherInfo()
+        biologyTeacher.teacherInfo()
     }
 
 

@@ -23,21 +23,41 @@ class Teacher {
     }
     
     var grade = ""
-    
     // Метод для добавления предмета, который ведет учитель
     func addSubjectTaught(subjectName: String) {
         let subject = Subject(subjectName: subjectName, grade: grade)
         self.subjectsTaught.append(subject)
     }
+    
+    func setTeacherFullName(name: String, lastName: String) {
+        self.firstName = name
+        self.lastName = lastName
+    }
+    
+    func getTeacherFullName() -> String {
+        return self.firstName + " " + self.lastName
+    }
+    
+//    func getStudentsTaught() -> String {
+//        return studentsTaught.map({$0.name})
+//    }
     // Метод для установки оценки ученику по определенному предмету
     func setGrade(for: Student, subjectName: String, grade: String) -> String {
         self.studentsTaught.append(`for`)
-        self.grade = grade
-        return grade
+        subjectsTaught.forEach { s in
+            if subjectName == s.subjectName {
+                self.grade = grade
+            } else {
+                self.grade = "No grade"
+            }
+        }
+        return grade + " (was set by \(firstName) \(lastName) for \(subjectName))"
     }
     // Метод для получения информации об учителе и предметах, которые он ведет
+//    func teacherInfo() -> [[String:String]] {
+//        return[["ID" : "\(id)"], ["Name" : "\(firstName)"], ["Surname" : "\(lastName)"], ["Subject" : "\(subjectsTaught.map({$0.subjectName}))"], ["Student" : "\(studentsTaught.map({$0}))"], ["Grade" : "\(subjectsTaught.map({$0.grade}))"]]
     func teacherInfo() {
-        print("ID: \(id), Name: \(firstName), Surname: \(lastName), Subject: \(subjectsTaught.map({$0.subjectName})), Student: \(studentsTaught.map({$0})) \(studentsTaught) Grade: \(subjectsTaught.map({$0.grade}))")
+        print("Teacher \(firstName) \(lastName) teaches the subject:  \(subjectsTaught.map({$0.subjectName}))")
     }
     
 }

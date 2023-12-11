@@ -24,31 +24,20 @@ class Student {
     }
     let noTeacher = Teacher(id: 0, firstName: "N/A", lastName: "N/A")
     
-    var grade = "No grade"
+    var grade = [String]()
     // Метод для получения предмета
-    func addSubject(subjectName: String) -> String {
-        let subject = Subject(subjectName: subjectName, grade: grade)
+    func addSubject(subjectName: String) {
+        let subject = Subject(subjectName: subjectName, grade: "")
         self.subjects.append(subject)
-        return subjectName
     }
     
     // Метод для установки оценок
-//    func getGrade(subjectName: String, grade: String) {
-//        subjects.forEach{s in
-//            if subjectName == s.subjectName {
-//                self.grade = grade
-//            } else {
-//                self.grade = "No grade"
-//            }
-//        }
-//    }
     
-    func getGrade(teacher: Teacher, grade: String) -> String {
+    func getGrade(teacher: Teacher, grade: String) {
         if self.teacher === teacher {
-            self.grade = grade
-            return grade
+            self.grade.append(grade)
         } else {
-            return "No grade"
+            self.grade.append("No grade")
         }
     }
     
@@ -69,9 +58,6 @@ class Student {
     }
     
     // Метод для получения информации о студенте и его предметах
-//    func studentInfo() -> [[String:String]] {
-//        return[["ID" : "\(id)"], ["Name" : "\(name)"], ["Surname" : "\(lastName)"], ["Subject" : "\(subjects.map({$0.subjectName}))"], ["Grade" : "\(subjects.map({$0.grade}))"], ["Teacher" : "\((teacher ?? noTeacher).teacherInfo())"]]
-//    }
     func studentInfo() {
         print("Student \(name) \(lastName) (age: \(age), ID: \(id)) has the subjects: \(subjects.map({$0.subjectName})) with grade: \(grade)")
     }

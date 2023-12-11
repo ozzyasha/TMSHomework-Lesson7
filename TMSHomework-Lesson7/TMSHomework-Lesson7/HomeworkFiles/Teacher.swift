@@ -54,10 +54,8 @@ class Teacher {
         return grade + " (was set by \(firstName) \(lastName) for \(subjectName))"
     }
     // Метод для получения информации об учителе и предметах, которые он ведет
-//    func teacherInfo() -> [[String:String]] {
-//        return[["ID" : "\(id)"], ["Name" : "\(firstName)"], ["Surname" : "\(lastName)"], ["Subject" : "\(subjectsTaught.map({$0.subjectName}))"], ["Student" : "\(studentsTaught.map({$0}))"], ["Grade" : "\(subjectsTaught.map({$0.grade}))"]]
     func teacherInfo() {
-        print("Teacher \(firstName) \(lastName) teaches the subject:  \(subjectsTaught.map({$0.subjectName}))")
+        print("Teacher \(firstName) \(lastName) (ID: \(id)) teaches the subject:  \(subjectsTaught.map({$0.subjectName}))")
     }
     
 }

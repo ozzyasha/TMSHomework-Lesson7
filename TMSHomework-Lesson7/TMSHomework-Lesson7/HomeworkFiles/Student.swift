@@ -34,7 +34,7 @@ class Student {
     // Метод для установки оценок
     
     func getGrade(teacher: Teacher, grade: String) {
-        if self.teacher === teacher {
+        if self.teacher?.getTeacherFullName() ?? "This teacher can't set the grade - it's not his subject" == teacher.getTeacherFullName() {
             self.grade.append(grade)
         } else {
             self.grade.append("No grade")
@@ -49,6 +49,10 @@ class Student {
     // Метод для установки имени студента
     func studentName(name: String) {
         self.name = name
+    }
+    
+    func getName() -> String {
+        return self.name
     }
     
     // Метод для связывания студента с учителем
